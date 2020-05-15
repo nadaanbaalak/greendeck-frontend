@@ -43,11 +43,14 @@ class Display extends Component {
   handleFetch = async () => {
     try {
       const { filters, skipCount, productsCount } = this.state;
-      const response = await axios.post("/api/products", {
-        filters,
-        skipCount,
-        productsCount,
-      });
+      const response = await axios.post(
+        "https://greendeck25.herokuapp.com/api/products",
+        {
+          filters,
+          skipCount,
+          productsCount,
+        }
+      );
       this.setState({
         products: [...this.state.products, ...response.data],
         skipCount: skipCount + productsCount,
@@ -99,11 +102,14 @@ class Display extends Component {
     this.setState({ filters: filters });
     try {
       const { skipCount, productsCount } = this.state;
-      const response = await axios.post("/api/products", {
-        filters,
-        skipCount,
-        productsCount,
-      });
+      const response = await axios.post(
+        "https://greendeck25.herokuapp.com/api/products",
+        {
+          filters,
+          skipCount,
+          productsCount,
+        }
+      );
 
       this.setState({
         products: [...response.data],
@@ -118,11 +124,14 @@ class Display extends Component {
   async componentDidMount() {
     try {
       const { filters, skipCount, productsCount } = this.state;
-      const response = await axios.post("/api/products", {
-        filters,
-        skipCount,
-        productsCount,
-      });
+      const response = await axios.post(
+        "https://greendeck25.herokuapp.com/api/products",
+        {
+          filters,
+          skipCount,
+          productsCount,
+        }
+      );
       console.log(response.data);
       this.setState({
         products: [...this.state.products, ...response.data],
